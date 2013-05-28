@@ -31,7 +31,7 @@ search = (req, res, next) ->
     db.get element, (err, path) ->
       scores.push
         path: req.headers.host + path.match(/static(.*)/)[1]
-        distance: pHash.hammingDistance hash, element
+        distance: pHash.hammingDistance(hash, element)/(hash.length+element.length)
       callback()
 
   db.keys "*", (err, hashes) ->
