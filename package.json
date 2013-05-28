@@ -1,0 +1,32 @@
+{ "name": "image-similarity"
+, "homepage": "http://jedahan.com"
+, "bugs": "http://github.com/jedahan/image-similarity/issues"
+, "licenses": [ "ISC" ]
+, "version": "0.0.1"
+, "description": "image similarity server using pHash"
+, "author": "Jonathan Dahan <jonathan@jedahan.com>"
+, "dependencies":
+  { "coffee-script": "1.6.x"
+  , "phash": "0.0.x"
+  , "redis": "0.8.x"
+  , "restify": "2.5.x"
+  , "swagger-doc": "0.2.x"
+  , "toobusy": "0.2.x"
+  }
+, "devDependencies":
+  { "coffee-script": "1.6.x"
+  , "supervisor": "0.5.x"
+  }
+, "engines": {
+    "node": "0.10.x",
+    "npm":  "1.2.x"
+  }
+, "scripts":
+  { "start": "coffee server.coffee"
+  , "test": "coffee test/*test.coffee"
+  }
+, "repository" :
+  { "type" : "git"
+  , "url" : "http://github.com/jedahan/similarity.git"
+  }
+}
