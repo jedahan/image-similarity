@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+APP="image-similarity"
+HOSTS="joyent"
+PORT="80"
+STRATEGY="nodejs"
+SUPERVISOR="bluepill"

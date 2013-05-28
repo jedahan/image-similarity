@@ -6,7 +6,8 @@
 , "description": "image similarity server using pHash"
 , "author": "Jonathan Dahan <jonathan@jedahan.com>"
 , "dependencies":
-  { "coffee-script": "1.6.x"
+  { "async": "0.2.x"
+  , "coffee-script": "1.6.x"
   , "phash": "0.0.x"
   , "redis": "0.8.x"
   , "restify": "2.5.x"
@@ -15,15 +16,14 @@
   }
 , "devDependencies":
   { "coffee-script": "1.6.x"
-  , "supervisor": "0.5.x"
+  , "node-dev": "2.0.x"
   }
 , "engines": {
     "node": "0.10.x",
     "npm":  "1.2.x"
   }
 , "scripts":
-  { "start": "coffee server.coffee"
-  , "test": "coffee test/*test.coffee"
+  { "start": "node-dev server.coffee"
   }
 , "repository" :
   { "type" : "git"

@@ -1,2 +1,2 @@
-supervisor: sudo coffee --watch server.coffee
+dev: sudo node-dev server.coffee
 redis: redis-server

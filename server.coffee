@@ -3,6 +3,7 @@ restify = require 'restify'
 toobusy = require 'toobusy'
 swagger = require 'swagger-doc'
 redis = require 'redis'
+async = require 'async'
 
 ###
   Database
@@ -26,11 +27,17 @@ upload = (req, res, next) ->
 search = (req, res, next) ->
   scores = []
   hash = pHash.getImageHash req.files.image.path
+  distance = (element, callback) ->
+    db.get element, (err, path) ->
+      scores.push
+        path: req.headers.host + path.match(/static(.*)/)[1]
+        distance: pHash.hammingDistance hash, element
+      callback()
+
   db.keys "*", (err, hashes) ->
     console.error err if err?
-    hashes.forEach (element, index, images) ->
-      scores.push {path: hashes[index], score: pHash.hammingDistance hash, element}
-  res.send scores.sort (a,b) -> a.score - b.score
+    async.each hashes, distance, (err) ->
+      res.send err or scores.sort (a,b) -> a.distance - b.distance
 
 ###
   Server Options
